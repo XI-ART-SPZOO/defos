@@ -19,7 +19,7 @@ function toggle_cursor_lock(self)
 end
 
 function extract_to_savefolder(res)
-	local appname = sys.get_config("project.title")
+	local appname = sys.get_config_string("project.title")
 
 	local resbuff = resource.load("/resources/"..res)
 	local raw_bytes = buffer.get_bytes(resbuff, hash("data"))
@@ -33,7 +33,7 @@ function extract_to_savefolder(res)
 end
 
 function init(self)
-	local appname = sys.get_config("project.title")
+	local appname = sys.get_config_string("project.title")
 	gui.set_text(gui.get_node("bundle_path"), defos.get_bundle_root()..defos.PATH_SEP)
 	-- custom cursors we will change between
 	self.current_cursor = 0 -- start with default cursor (nil)
